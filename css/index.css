@@ -1,8 +1,45 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.wrapper {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .content{
 	width: 640px;
 	height: 640px;
-	margin: 0 auto;
 	position: relative;
+}
+.panel {
+	margin-right: 20px;
+	color: white;
+	width: 150px;
+	height: 640px;
+	box-sizing: border-box;
+	background: #225675;
+	border: 20px solid #7dd9ff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.panel-item {
+	height: 15%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.score-panel {
+	padding-top: 30px;
 }
 .btn{
 	width: 100%;
@@ -65,4 +102,8 @@
 .food{
 	background-image: url(../images/food.png);
 	background-size: cover; 
+}
+
+.wall {
+	background-color: #7dd9ff;
 }

@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>贪吃蛇</title>
 	<link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-	<div class="content">
-		<div class="btn startBtn"><button></button></div>
-		<div class="btn pauseBtn"><button></button></div>
-		<div id="snakeWrap"></div>
+	<div class="wrapper">
+		<!-- 积分板 -->
+		<div class="panel">
+			<div class="panel-item score-panel">
+				<div class="score-panel-title">得分</div>
+				<div class="score-panel-content">0</div>
+			</div>
+			<!-- 游戏时间 -->
+			<div class="panel-item time-panel">
+				<div class="time-panel-title">时间</div>
+				<div class="time-panel-content">--:--</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="btn startBtn"><button></button></div>
+			<div class="btn pauseBtn"><button></button></div>
+			<div id="snakeWrap"></div>
+		</div>
 	</div>
 
 	<script src="js/index.js"></script>
 </body>
+
 </html>
