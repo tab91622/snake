@@ -158,7 +158,7 @@ var scoreContent = document.querySelector('.score-panel-content')
 
 function updateScore (score) {
 	scoreContent.innerHTML = score
-	globalData.accessLock = game.score % 10 === 0	// 每 10 分可允许穿越障碍/自身
+	globalData.accessLock = game.score > 0 && game.score % 10 === 0	// 每 10 分可允许穿越障碍/自身
 
 }
 
@@ -260,12 +260,14 @@ Snake.prototype.getNextPos = function () {
 
 	if (!globalData.accessLock) {
 		// 当允许穿越时，不检测对自身/随机墙的碰撞
-		this.pos.forEach(function (value) {
+		const pos = this.pos
+		for (let i = 0, j = pos.length; i < j; i++) {
+			const value = pos[i]
 			if (value[0] == nextPos[0] && value[1] == nextPos[1]) {
 				//如果数组中的两个数据都相等，就说明下一个点在蛇身上里面能找到，代表撞到自己了
 				return this.strategies.die.call(this)
 			}
-		});
+		}
 
 		if (game.wallSet.length > 0) {
 			// 检查随机墙
@@ -486,6 +488,9 @@ Game.prototype.over = function () {
 	//游戏回到最初始的状态
 	var snakeWrap = document.getElementById('snakeWrap');
 	snakeWrap.innerHTML = '';
+
+	this.score = 0
+	updateScore(0)
 
 	snake = new Snake();
 	game = new Game()
